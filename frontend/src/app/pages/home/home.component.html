@@ -1,0 +1,51 @@
+<h1>Portinari Books</h1>
+<hr>
+<po-slide
+  p-height="450"
+  [p-slides]="sampleItems"
+>
+
+  <ng-template p-slide-content-template let-item>
+
+    <div class="sample-background-image"
+      [style.background-image]="'url(' + item.imagem + ')'"
+      [style.backgroundSize]="'cover'"
+      [style.height.%]="100"
+    >
+
+      <div class="po-row">
+
+        <div class="po-offset-sm-1 po-offset-md-1 po-offset-lg-1 po-offset-xl-1 po-lg-5 po-sm-10 po-mt-4 po-mb-4 po-p-5"
+          [style.background]="'white'">
+          <div class="po-font-display">{{item.title}}</div>
+          <po-divider></po-divider>
+          <div class="po-font-text-large-bold po-mb-3">{{item.description}}</div>
+          <po-button p-label="Aqui" (p-click)="navegacao(item.link)"></po-button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </ng-template>
+
+</po-slide>
+
+<h2 class="titulo">Lorem ipsum dolor sit amet</h2>
+<div class="po-row">
+  <div class="po-xl-6 po-lg-6 po-md-6 po-sm-6 alinhamento">
+    Donec non felis et neque ullamcorper interdum eu quis nibh.
+    Sed id hendrerit orci. Ut ut ante quis nulla tincidunt tristique.
+    Suspendisse euismod augue quis cursus auctor. Suspendisse feugiat id urna consectetur tempus.
+    Praesent risus nulla, sollicitudin vitae mi nec, dignissim tincidunt orci.
+    Phasellus placerat rutrum ex, quis posuere tortor vulputate eu.
+    Curabitur enim metus, sodales sit amet purus at, hendrerit placerat mauris.
+  </div>
+  <div class="po-xl-6 po-lg-6 po-md-6 po-sm-6 alinhamento">
+    Integer imperdiet tortor vitae laoreet placerat.
+    Pellentesque dui dolor, tincidunt vel dui quis, scelerisque ultricies magna.
+    In quis consectetur lacus. Aliquam erat volutpat. Proin aliquam urna quis porttitor imperdiet.
+    Integer efficitur diam nec odio sagittis lobortis.
+    Vivamus posuere, ligula elementum gravida commodo, diam enim faucibus ante, eu facilisis massa eros eu diam.
+  </div>
+</div>

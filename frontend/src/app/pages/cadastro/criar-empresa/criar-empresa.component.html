@@ -1,0 +1,28 @@
+<po-breadcrumb
+  [p-items]="[{ label: 'Home', link: '/' }, { label: 'Editoras' }, {label: 'Cadastrar Editora', link: 'breadcrumb'}]">
+</po-breadcrumb>
+
+<hr>
+
+<h1>Cadastrar Editora</h1>
+
+<hr>
+
+<po-dynamic-form #dynamicForm
+  p-auto-focus="name"
+  [p-fields]="form"
+  [p-value]="company"
+></po-dynamic-form>
+
+<hr>
+
+<div class="po-row">
+
+  <po-button
+    class="po-md-2"
+    p-label="Salvar"
+    [p-disabled]="dynamicForm?.form.invalid"
+    (p-click)="createCompany(); dynamicForm.form.reset();"
+  ></po-button>
+
+</div>

@@ -1,0 +1,75 @@
+<po-breadcrumb
+  [p-items]="[{ label: 'Home', link: '/' }, { label: 'Editoras' }, {label: 'Editoras Cadastradas', link: '/empresa'}, {label: 'Produtos', link: 'breadcrumb'}]">
+</po-breadcrumb>
+
+<hr>
+
+<po-tabs>
+  <!-- Parte 1 -->
+  <po-tab p-active p-label="Produtos Cadastrados" (p-click)="getAllProdutos(idEmpresa)">
+
+    <div class="po-row" *ngIf="!productsCompany" >
+      Não há nada para se ver por aqui :(
+    </div>
+
+    <div class="po-row" *ngIf="productsCompany">
+
+      <po-widget *ngFor ="let products of productsCompany"
+        class="po-lg-3 po-pb-2"
+        p-height="200"
+        p-primary-label="Excluir"
+        p-secondary-label="Editar"
+        p-title="{{ products.name }}"
+        (p-primary-action)="deleteProduto(products._id)"
+        (p-secondary-action)="openModal(products._id)"
+      >
+
+        <div class="po-font-subtitle po-text-center">{{ products.name }}</div>
+        <div class="po-text-center">{{ products.nameAuthor }}</div>
+        <div class="po-text-center">Disponível: {{ products.available }}</div>
+
+      </po-widget>
+
+    </div>
+
+  </po-tab>
+  <!-- Parte 2 -->
+  <po-tab p-label="Cadastrar Produtos">
+
+    <po-dynamic-form #dynamicForm
+      [p-fields]="form"
+      [p-value]="products"
+    ></po-dynamic-form>
+
+    <hr>
+
+    <div class="po-row">
+
+      <po-button
+        class="po-md-2"
+        p-label="Salvar"
+        [p-disabled]="dynamicForm?.form.invalid"
+        (p-click)="createProdutos(); dynamicForm.form.reset();"
+      ></po-button>
+
+    </div>
+
+  </po-tab>
+
+</po-tabs>
+
+<po-modal #modal
+  p-title="Detalhes do Produtos"
+  p-click-out="true"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close"
+>
+
+  <po-dynamic-form #dynamicForm1
+      [p-fields]="form"
+      [p-value]="productsUpdate">
+  </po-dynamic-form>
+
+  <hr>
+
+</po-modal>

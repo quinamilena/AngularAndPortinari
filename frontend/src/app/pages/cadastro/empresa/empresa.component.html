@@ -1,0 +1,54 @@
+<po-breadcrumb
+  [p-items]="[{ label: 'Home', link: '/' }, { label: 'Editoras' }, {label: 'Editoras Cadastradas', link: 'breadcrumb'}]">
+</po-breadcrumb>
+
+<hr>
+
+<div class="po-row" *ngIf="!editoras" >
+  Não há nada para se ver por aqui :(
+</div>
+
+<div class="po-row" *ngIf="editoras">
+
+  <po-widget *ngFor="let editora of editoras" class="po-row"
+    class="po-sm-12 po-md-8 po-lg-6 po-pb-2"
+    p-height="200"
+    p-title="Editora {{ editora.name }}"
+    p-primary-label="Excluir"
+    p-secondary-label="Editar"
+    (p-primary-action)="deletarEmpresa(editora._id)"
+    (p-secondary-action)="openModal(editora._id)"
+    (p-title-action)="produtos(editora._id)"
+  >
+
+    <po-avatar
+      class="po-sm-4"
+      p-size="md"
+      p-src="{{ editora.image }}">
+    </po-avatar>
+
+    <div class="po-md-6">
+      <p><strong>Nome da Empresa:</strong> {{ editora.name }}</p>
+      <p><strong>Telefone:</strong> {{ formatPhoneNumber(editora.phone) }}</p>
+      <p><strong>Email:</strong> {{ editora.email }}</p>
+    </div>
+
+  </po-widget>
+
+</div>
+
+<po-modal #modal
+  p-title="Detalhes da Empresa"
+  p-click-out="true"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close"
+>
+
+  <po-dynamic-form #dynamicForm1
+      [p-fields]="form"
+      [p-value]="companyUpdate">
+  </po-dynamic-form>
+
+  <hr>
+
+</po-modal>

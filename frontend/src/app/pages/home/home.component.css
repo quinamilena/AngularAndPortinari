@@ -1,0 +1,10 @@
+.alinhamento{
+  line-height: 2.0;
+  text-align: justify;
+  padding: 25px;
+  margin-bottom: 50px;
+}
+.titulo {
+  padding: 20px;
+  text-align: center;
+}
