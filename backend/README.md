@@ -1,5 +1,7 @@
 # Backend do Projeto Angular com Portinari
 
+## Estrutura de como foi criado o backend
+
    #### Preparação do Ambiente
    - [Node.js](https://nodejs.org/en/download/)
    - [MongoDB](https://www.google.com/url?q=https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.0-signed.msi&sa=D&source=hangouts&ust=1580842165889000&usg=AFQjCNHlJhXO7TIhW4AOLbu3wyGS_zExfQ)
